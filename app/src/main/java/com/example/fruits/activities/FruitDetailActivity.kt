@@ -1,9 +1,10 @@
-package com.example.fruits
+package com.example.fruits.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.fruits.R
 
-class FruitDetail : AppCompatActivity() {
+class FruitDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

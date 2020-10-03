@@ -1,4 +1,4 @@
-package com.example.fruits
+package com.example.fruits.requests.entity
 
 import com.google.gson.annotations.SerializedName
 
@@ -10,7 +10,7 @@ data class FindResult(
 
 data class Fruit (
     val tfvname: String,
-    val botname: String,
-    val othname: String,
+//    val botname: String,
+//    val othname: String,
     val imageurl: String
 )

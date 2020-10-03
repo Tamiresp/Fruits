@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main_layout"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
@@ -22,16 +22,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Digitar"
+            android:hint="@string/search"
             android:inputType="textPersonName" />
 
-        <Button
-            android:id="@+id/btn_busca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:text="Pesquisar" />
     </LinearLayout>
 
     <ProgressBar
