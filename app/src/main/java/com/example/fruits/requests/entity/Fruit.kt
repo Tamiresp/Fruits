@@ -10,7 +10,7 @@ data class FindResult(
 
 data class Fruit (
     val tfvname: String,
-//    val botname: String,
-//    val othname: String,
+    val botname: String,
+    val othname: String,
     val imageurl: String
 )

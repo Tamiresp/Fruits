@@ -24,7 +24,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
     private val items = ArrayList<Fruit>()
     private val adapter: ListAdapter by lazy {
-        ListAdapter(items)
+        ListAdapter(items, this)
     }
 
     private fun initRecyclerView() {
@@ -75,12 +75,6 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
-
-
-//        R.layout.item..setOnClickListener {
-//            val intent = Intent(this, FruitDetailActivity::class.java)
-//            startActivity(intent)
-//        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -115,14 +109,11 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_LONG).show()
             }
 
-            override fun onResponse(
-                call: Call<FindResult>,
-                response: Response<FindResult>
-            ) {
+            override fun onResponse(call: Call<FindResult>, response: Response<FindResult>) {
                 val result: FindResult = response.body()!!
 
                 for (item in result.list) {
-                    adapter.addItem(Fruit(item.tfvname, item.imageurl))
+                    adapter.addItem(Fruit(item.tfvname, item.botname, item.othname, item.imageurl))
                 }
                 progressBar.visibility = View.GONE
             }
