@@ -3,4 +3,6 @@
     <string name="search">Pesquisar</string>
     <string name="no_network">Sem conexão com a internet</string>
     <string name="detail_title">Detalhes</string>
+    <string name="botname_label">Nome Botânico: </string>
+    <string name="othname_label">Outros nomes: </string>
 </resources>
