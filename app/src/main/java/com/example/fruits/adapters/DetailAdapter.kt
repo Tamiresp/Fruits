@@ -1,6 +1,5 @@
 package com.example.fruits.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.fruits.R
 import com.example.fruits.requests.entity.FruitDetail
 
-class DetailAdapter (private val items: MutableList<FruitDetail>, context: Context) : RecyclerView.Adapter<MyViewHolderDetail>(){
-    private val context = context
-
+class DetailAdapter (private val items: MutableList<FruitDetail>) : RecyclerView.Adapter<MyViewHolderDetail>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolderDetail {
         val viewHolder = LayoutInflater.from(parent.context).inflate(R.layout.item_detail, parent, false)
         return MyViewHolderDetail(viewHolder)
