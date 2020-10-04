@@ -38,10 +38,7 @@ class ListAdapter (private val items: MutableList<Fruit>, context: Context) : Re
 
         holder.card.setOnClickListener {
             val intent = Intent(context, FruitDetailActivity::class.java)
-            intent.putExtra("image", item.imageurl)
             intent.putExtra("name", item.tfvname)
-            intent.putExtra("botname", item.botname)
-            intent.putExtra("othname", item.othname)
             context.startActivity(intent)
         }
     }
@@ -53,8 +50,6 @@ class ListAdapter (private val items: MutableList<Fruit>, context: Context) : Re
 }
 class MyViewHolder (itemView: View): RecyclerView.ViewHolder(itemView){
     val tfvname: TextView = itemView.findViewById(R.id.tvFruitNameValue)
-    val botname: TextView = itemView.findViewById(R.id.tvFruitNameValue)
-    val othname: TextView = itemView.findViewById(R.id.tvFruitNameValue)
     val imageurl: ImageView = itemView.findViewById(R.id.imgFruit)
     val card: CardView = itemView.findViewById(R.id.card)
 }

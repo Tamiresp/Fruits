@@ -1,6 +1,5 @@
 package com.example.fruits.requests
 
-import com.example.fruits.requests.endpoints.IFruitService
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

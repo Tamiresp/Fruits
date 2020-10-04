@@ -5,4 +5,5 @@
     <string name="detail_title">Detalhes</string>
     <string name="botname_label">Nome Botânico: </string>
     <string name="othname_label">Outros nomes: </string>
+    <string name="desc_label">Descrição: </string>
 </resources>

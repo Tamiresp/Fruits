@@ -13,7 +13,7 @@ import com.example.fruits.R
 import com.example.fruits.adapters.ListAdapter
 import com.example.fruits.requests.Api
 import com.example.fruits.requests.endpoints.IFruitService
-import com.example.fruits.requests.entity.FindResult
+import com.example.fruits.requests.entity.AllResults
 import com.example.fruits.requests.entity.Fruit
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
@@ -102,18 +102,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun getData(parameterName: String) {
         val result = Api.getInstance().create(IFruitService::class.java).getFruits(parameterName)
-        result.enqueue(object : Callback<FindResult> {
+        result.enqueue(object : Callback<AllResults> {
 
-            override fun onFailure(call: Call<FindResult>, t: Throwable) {
+            override fun onFailure(call: Call<AllResults>, t: Throwable) {
                 progressBar.visibility = View.GONE
                 Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_LONG).show()
             }
 
-            override fun onResponse(call: Call<FindResult>, response: Response<FindResult>) {
-                val result: FindResult = response.body()!!
+            override fun onResponse(call: Call<AllResults>, response: Response<AllResults>) {
+                val result: AllResults = response.body()!!
 
                 for (item in result.list) {
-                    adapter.addItem(Fruit(item.tfvname, item.botname, item.othname, item.imageurl))
+                    adapter.addItem(Fruit(item.tfvname, item.imageurl))
                 }
                 progressBar.visibility = View.GONE
             }
