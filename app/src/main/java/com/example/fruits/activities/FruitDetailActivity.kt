@@ -7,12 +7,11 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.fruits.R
-import com.example.fruits.adapters.DetailAdapter
 import com.example.fruits.requests.Api
 import com.example.fruits.requests.endpoints.IFruitDetailService
 import com.example.fruits.requests.entity.DetailResults
-import com.example.fruits.requests.entity.FruitDetail
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_fruit_detail.*
 import retrofit2.Call
@@ -21,15 +20,6 @@ import retrofit2.Response
 
 
 class FruitDetailActivity : AppCompatActivity() {
-    private val items = ArrayList<FruitDetail>()
-    private val adapter: DetailAdapter by lazy {
-        DetailAdapter(items, this)
-    }
-
-    private fun initRecyclerView() {
-        recycler_detail.adapter = adapter
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fruit_detail)
@@ -38,8 +28,6 @@ class FruitDetailActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
-
-        initRecyclerView()
 
         val intent = intent
         val name = intent.getStringExtra("name")
@@ -80,8 +68,13 @@ class FruitDetailActivity : AppCompatActivity() {
                 val result: DetailResults = response.body()!!
 
                 for (item in result.list) {
-                    adapter.addItem(FruitDetail(item.tfvname, item.botname, item.othname,
-                        item.imageurl, item.description))
+                    name_fruit.text = item.tfvname
+                    botname_detail.text = item.botname
+                    othname_detail.text = item.othname
+                    Glide.with(this@FruitDetailActivity)
+                        .load(item.imageurl)
+                        .into(fruit_detail_img)
+                    desc_detail.text = item.description
                 }
                 progressBar_detail.visibility = View.GONE
             }

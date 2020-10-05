@@ -8,10 +8,9 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,9 +23,10 @@
 
             <ImageView
                 android:id="@+id/imgFruit"
-                android:layout_width="50dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
+                android:scaleType="center"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
@@ -40,7 +40,5 @@
                 tools:text="Nome da Fruta" />
 
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
